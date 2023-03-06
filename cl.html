@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-image: linear-gradient(to bottom, #fff 0%, #fff 50%, #f2f2f2 50%, #f2f2f2 100%);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        input[type="submit"] {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+		<h1>Sum Calculation</h1>
+		<form>
+			<label for="first-nm">Enter your first number:</label>
+			<input type="number" id="first-nm" min="2" value="2" required>
+			<label for="second-nm">Enter your second number:</label>
+			<input type="number" id="second-nm" min="1" value="1" required>
+            <div class="col s46 m46 push-l6 l40" style="padding-top:20px;background-color: #f2f2f2;"></div>
+            <button type="button" id="calculate-btn" style="font-size: 24px; padding: 15px 30px; border-radius: 10px; border: none; background-color: #4CAF50; color: #fff; cursor: pointer; width: 90%; max-width: 400px; margin: 0 auto;">Calculate</button>		</form>
+		<div id="result" style="font-size: 24px"></div>
+	</div>
+	<script>
+        const calculateBtn = document.getElementById("calculate-btn");
+        const result = document.getElementById("result");
+
+        calculateBtn.addEventListener("click", function() {
+        let sum = 0;
+        const x = parseInt(document.getElementById("first-nm").value);
+        const y = parseInt(document.getElementById("second-nm").value);
+        
+        if (y < x) {
+            const z = x - y + 1;
+            
+            for(let i = 1; i < z; i++) {
+            sum += i;
+            }
+            
+            result.textContent = `The sum is ${sum}`;
+        } else {
+            result.textContent = "The second number must be less than the first number!";
+        }
+        });
+
+    </script>
+</body>
+</html>
